@@ -6,10 +6,10 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import CtaButton from "@/components/ui/CtaButton";
 
 const parceiros = [
-  { name: "FAPES",    src: "/images/fapes.png",    w: 120 },
-  { name: "SEBRAE",   src: "/images/sebrae.png",   w: 130 },
-  { name: "SECTI-ES", src: "/images/secti-es.png", w: 140 },
-  { name: "SEGER-ES", src: "/images/seger-es.png", w: 130 },
+  { name: "FAPES",    src: "/logos/1.png", w: 160 },
+  { name: "SEBRAE",   src: "/logos/2.png", w: 140 },
+  { name: "SECTI-ES", src: "/logos/3.png", w: 200 },
+  { name: "SEGER-ES", src: "/logos/4.png", w: 180 },
 ];
 
 export default function IncentivadoresSection() {
@@ -60,7 +60,7 @@ export default function IncentivadoresSection() {
             {parceiros.map((p, i) => (
               <motion.div
                 key={i}
-                className="relative flex items-center justify-center px-8 py-6 rounded-xl group cursor-pointer"
+                className="relative flex items-center justify-center px-8 py-6 rounded-xl group cursor-pointer overflow-hidden"
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   border: "1px solid rgba(255,255,255,0.07)",
@@ -74,13 +74,13 @@ export default function IncentivadoresSection() {
                 }}
                 transition={{ duration: 0.25 }}
               >
-                <div className="relative" style={{ width: p.w, height: 48 }}>
+                <div className="relative overflow-hidden" style={{ width: p.w, height: 64 }}>
                   <Image
                     src={p.src}
                     alt={p.name}
                     fill
                     className="object-contain"
-                    style={{ filter: "brightness(1.2) contrast(1.05)", opacity: 0.85 }}
+                    style={{ filter: "brightness(1.1) contrast(1.05)", opacity: 0.95, transform: "scale(2)", transformOrigin: "center" }}
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       const parent = target.parentElement;

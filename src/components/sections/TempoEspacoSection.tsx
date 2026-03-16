@@ -45,13 +45,13 @@ export default function TempoEspacoSection() {
           alt="Espaço criativo"
           fill
           className="object-cover"
-          style={{ opacity: 0.08 }}
+          style={{ opacity: 0.65 }}
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
         />
         {/* Overlay escuro azulado */}
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(160deg, rgba(6,8,14,0.92) 0%, rgba(8,10,18,0.88) 50%, rgba(6,8,16,0.95) 100%)" }}
+          style={{ background: "linear-gradient(160deg, rgba(6,8,14,0.55) 0%, rgba(8,10,18,0.50) 50%, rgba(6,8,16,0.60) 100%)" }}
         />
         {/* Noise */}
         <div

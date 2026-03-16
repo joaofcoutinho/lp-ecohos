@@ -76,7 +76,7 @@ export default function HeroSection() {
         <div className="w-full max-w-7xl mx-auto px-8 lg:px-16 py-12 lg:py-0">
           <div className="grid lg:grid-cols-[45%_55%] gap-0 items-center">
             {/* Left: Text */}
-            <div className="space-y-8 min-w-0">
+            <div className="space-y-8 min-w-0 text-center lg:text-left flex flex-col items-center lg:items-start">
               <AnimatedSection direction="up" delay={0.1}>
                 <div className="section-badge">
                   <span
@@ -89,16 +89,15 @@ export default function HeroSection() {
 
               <AnimatedSection direction="up" delay={0.2}>
                 <h1>
-                  <div className="relative w-full max-w-[520px] h-[90px]">
-                    <Image
-                      src="/moviment-ecohos.png"
-                      alt="MOVIMENTO ECOHOS"
-                      fill
-                      className="object-contain object-left"
-                      priority
-                      style={{ filter: "drop-shadow(0 0 24px rgba(168,255,62,0.25))" }}
-                    />
-                  </div>
+                  <Image
+                    src="/images/moviment-ecohos.png"
+                    alt="MOVIMENTO ECOHOS"
+                    width={520}
+                    height={90}
+                    className="w-full max-w-[520px] h-auto"
+                    priority
+                    style={{ filter: "drop-shadow(0 0 24px rgba(168,255,62,0.25))" }}
+                  />
                 </h1>
               </AnimatedSection>
 
@@ -119,7 +118,7 @@ export default function HeroSection() {
 
               {/* Stats row */}
               <AnimatedSection direction="up" delay={0.5}>
-                <div className="flex items-center gap-10 pt-4">
+                <div className="flex items-center justify-center lg:justify-start gap-10 pt-4">
                   <div>
                     <div className="text-white font-black text-4xl leading-none">3</div>
                     <div className="text-[#666] text-xs uppercase tracking-widest mt-1">

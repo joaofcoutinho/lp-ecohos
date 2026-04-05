@@ -35,7 +35,9 @@ export default function Footer() {
           {/* Social */}
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="https://www.instagram.com/institutoecohos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-9 h-9 rounded-lg border border-[#222] flex items-center justify-center text-[#555] hover:text-[#a8ff3e] hover:border-[#a8ff3e]/40 transition-all"
               aria-label="Instagram"
             >
@@ -46,7 +48,9 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/company/institutoecohos"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-9 h-9 rounded-lg border border-[#222] flex items-center justify-center text-[#555] hover:text-[#a8ff3e] hover:border-[#a8ff3e]/40 transition-all"
               aria-label="LinkedIn"
             >

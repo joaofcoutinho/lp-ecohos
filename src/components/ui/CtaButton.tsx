@@ -13,7 +13,7 @@ interface CtaButtonProps {
 
 export default function CtaButton({
   label = "QUERO FAZER PARTE DESSE MOVIMENTO",
-  href = "/cadastro",
+  href = "#incentivadores",
   size = "md",
   className = "",
 }: CtaButtonProps) {

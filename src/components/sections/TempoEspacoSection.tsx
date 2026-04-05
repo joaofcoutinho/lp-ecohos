@@ -102,7 +102,7 @@ export default function TempoEspacoSection() {
               className="font-medium text-lg mb-8 tracking-normal"
               style={{ color: "#a8ff3e", textShadow: "0 0 20px rgba(168,255,62,0.4)", fontFamily: "var(--font-space)" }}
             >
-              O espaço onde três forças se conectam para transformar a saúde
+              O hub onde três forças se conectam para transformar a saúde
             </p>
           </AnimatedSection>
 

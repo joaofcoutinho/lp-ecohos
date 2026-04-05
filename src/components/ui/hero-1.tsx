@@ -43,16 +43,9 @@ export function HeroLanding({
   description,
   announcementBanner,
   callToActions = [],
-  titleSize = 'large',
   className = '',
 }: HeroLandingProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  const titleSizeClass = {
-    small: 'text-3xl sm:text-4xl md:text-5xl',
-    medium: 'text-3xl sm:text-5xl md:text-6xl',
-    large: 'text-4xl sm:text-5xl md:text-7xl',
-  }[titleSize]
 
   return (
     <div className={`w-full overflow-hidden relative bg-[#080808] ${className}`}>
@@ -182,7 +175,7 @@ export function HeroLanding({
 
           <div className="hidden lg:flex">
             <Link
-              href="/cadastro"
+              href="#incentivadores"
               className="text-sm font-semibold px-5 py-2 rounded-lg transition-all"
               style={{
                 background: '#a8ff3e',
@@ -235,7 +228,7 @@ export function HeroLanding({
 
               <div className="pt-4 border-t border-white/10">
                 <Link
-                  href="/cadastro"
+                  href="#incentivadores"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block rounded-lg px-3 py-2.5 text-base font-semibold text-[#080808] text-center"
                   style={{ background: '#a8ff3e' }}

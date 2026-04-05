@@ -27,9 +27,9 @@ export default function HeroSection2() {
       }
       description="Conectando especialistas, gestores públicos e startups para transformar desafios da saúde pública em soluções tecnológicas que melhorem o atendimento à população."
       announcementBanner={{
-        text: 'Inovação em Saúde Pública · Espírito Santo',
-        linkText: 'Conheça o programa',
-        linkHref: '#proposito',
+        text: 'O Desenvolvimento de Pessoas através de Desafios',
+        linkText: '',
+        linkHref: '',
       }}
       callToActions={[
         { text: 'Quero fazer parte', href: '/cadastro', variant: 'primary' },

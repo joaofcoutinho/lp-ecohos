@@ -1,17 +1,20 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="relative w-full py-12 border-t border-[#111]">
       <div className="max-w-7xl mx-auto px-8 lg:px-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
-          <div
-            className="text-[#a8ff3e] font-bold text-xl tracking-widest"
-            style={{ fontFamily: "var(--font-space)" }}
-          >
-            ecohos
-          </div>
+          <Image
+            src="/ecohos.png"
+            alt="ECOHOS Logo"
+            width={200}
+            height={60}
+            className="object-contain h-14 w-auto"
+          />
 
           {/* Links */}
           <div className="flex items-center gap-8 text-[#555] text-sm">
@@ -58,9 +61,14 @@ export default function Footer() {
 
         <div className="sep-line mt-8 mb-6" />
 
-        <p className="text-center text-[#333] text-xs">
-          © 2026 Movimento ECOHOS · Espírito Santo · Inovação na Saúde Pública
-        </p>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-[#666] text-xs">
+            © 2026 Programa Secretário Inovador · Espírito Santo · Inovação na Saúde Pública
+          </p>
+          <p className="text-[#666] text-xs text-center md:text-right">
+            R. Dom João Batista da Mota e Albuquerque, 11 — Ibes, Vila Velha - ES, 29104-045
+          </p>
+        </div>
       </div>
     </footer>
   );

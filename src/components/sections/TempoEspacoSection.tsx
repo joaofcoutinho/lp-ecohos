@@ -89,26 +89,26 @@ export default function TempoEspacoSection() {
 
           <AnimatedSection direction="up" delay={0.1}>
             <h2
-              className="font-black tracking-tight leading-tight mb-6"
+              className="font-semibold tracking-tight leading-tight mb-6"
               style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
             >
-              <span className="text-white">TEMPO E ESPAÇO</span>{" "}
-              <span className="text-gradient">CRIATIVO</span>
+              <span className="text-white">Tempo e espaço</span>{" "}
+              <span className="text-gradient">criativo</span>
             </h2>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.15}>
             <p
-              className="font-bold text-lg mb-8 uppercase tracking-wide"
+              className="font-medium text-lg mb-8 tracking-normal"
               style={{ color: "#a8ff3e", textShadow: "0 0 20px rgba(168,255,62,0.4)", fontFamily: "var(--font-space)" }}
             >
-              O ESPAÇO ONDE TRÊS FORÇAS SE CONECTAM PARA TRANSFORMAR A SAÚDE
+              O espaço onde três forças se conectam para transformar a saúde
             </p>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.18}>
             <p className="text-[#888] text-lg leading-[1.9] max-w-3xl mx-auto">
-              O Movimento ECOHOS promove um espaço criativo de conexão entre especialistas,
+              O Programa Secretário Inovador promove um espaço criativo de conexão entre especialistas,
               gestores públicos e empreendedores. Fora da rotina das instituições, esse
               ambiente estimula novas ideias, colaboração e o desenvolvimento de soluções
               inovadoras capazes de enfrentar os desafios da saúde pública e melhorar a vida

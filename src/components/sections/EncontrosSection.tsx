@@ -78,17 +78,17 @@ export default function EncontrosSection() {
 
           <AnimatedSection direction="up" delay={0.1}>
             <h2
-              className="font-black tracking-tight text-white mb-4"
+              className="font-semibold tracking-tight text-white mb-4"
               style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
             >
-              ENCONTROS & <span className="text-gradient">CONEXÕES</span>
+              Encontros & <span className="text-gradient">Conexões</span>
             </h2>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.15}>
             <p className="text-[#666] text-base max-w-2xl mx-auto leading-relaxed">
               A partir dessa conexão entre especialistas, gestores públicos e startups, o
-              Movimento ECOHOS impulsiona o desenvolvimento de soluções inovadoras para os
+              Programa Secretário Inovador impulsiona o desenvolvimento de soluções inovadoras para os
               desafios da saúde pública.
             </p>
           </AnimatedSection>

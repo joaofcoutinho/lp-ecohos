@@ -47,7 +47,7 @@ export function PapelDetalhadoSection({
       {/* Tagline — destaque menor, apenas accent color na primeira linha */}
       <AnimatedSection direction={dir} delay={0.18}>
         <p
-          className="font-black leading-[1.1] uppercase"
+          className="font-semibold leading-[1.1]"
           style={{
             fontFamily: "var(--font-space)",
             fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)",
@@ -143,65 +143,6 @@ export function PapelDetalhadoSection({
     </div>
   );
 
-  const imageCol = (
-    <AnimatedSection direction={reversed ? "left" : "right"} delay={0.15}>
-      <div className="relative w-full aspect-[3/4] max-w-[480px] mx-auto">
-        {/* Outer glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: `radial-gradient(ellipse at center, ${accent}15 0%, transparent 68%)`,
-            transform: "scale(1.3)",
-          }}
-        />
-
-        {/* Image card */}
-        <div
-          className="relative w-full h-full rounded-2xl overflow-hidden"
-          style={{ border: `1px solid ${accent}25` }}
-        >
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover object-center"
-            style={{ filter: `brightness(1.55) contrast(1.05)` }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = "none";
-            }}
-          />
-          {/* Vinheta lateral para fundir com o fundo */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: reversed
-                ? `linear-gradient(to right, rgba(10,10,10,0.5) 0%, transparent 30%, transparent 70%, rgba(10,10,10,0.2) 100%), linear-gradient(to top, rgba(10,10,10,0.4) 0%, transparent 30%)`
-                : `linear-gradient(to left, rgba(10,10,10,0.5) 0%, transparent 30%, transparent 70%, rgba(10,10,10,0.2) 100%), linear-gradient(to top, rgba(10,10,10,0.4) 0%, transparent 30%)`,
-            }}
-          />
-          {/* Image fallback */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <RobotPlaceholder accent={accent} />
-          </div>
-        </div>
-
-        {/* Tag badge no canto */}
-        <div
-          className={`absolute bottom-5 ${reversed ? "right-5" : "left-5"} px-4 py-2 rounded-lg backdrop-blur-sm`}
-          style={{
-            background: "rgba(8,8,8,0.75)",
-            border: `1px solid ${accent}30`,
-          }}
-        >
-          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent }}>
-            {tag}
-          </span>
-        </div>
-      </div>
-    </AnimatedSection>
-  );
-
   const bgStyle = reversed
     ? "linear-gradient(160deg, #080c08 0%, #090d09 50%, #07090a 100%)"
     : "linear-gradient(160deg, #080808 0%, #0b0b10 50%, #080808 100%)";
@@ -209,78 +150,76 @@ export function PapelDetalhadoSection({
   return (
     <section
       id={id}
-      className="relative w-full py-32 overflow-hidden"
-      style={{ background: bgStyle }}
+      className="relative w-full overflow-hidden flex flex-col lg:flex-row"
+      style={{ background: bgStyle, minHeight: '700px' }}
     >
-      <div className="sep-line-bright absolute top-0 left-0 right-0" />
+      <div className="sep-line-bright absolute top-0 left-0 right-0 z-10" />
 
-      {/* Diagonal lines sutis */}
-      <div className="absolute inset-0 diagonal-lines pointer-events-none opacity-60" />
-
-      {/* Glow lateral forte */}
-      <div
-        className={`absolute ${reversed ? "right-[-100px]" : "left-[-100px]"} top-1/2 -translate-y-1/2 w-[600px] h-[700px] pointer-events-none`}
-        style={{
-          background: reversed
-            ? `radial-gradient(ellipse at right, ${accent}10 0%, transparent 65%)`
-            : `radial-gradient(ellipse at left, ${accent}10 0%, transparent 65%)`,
-        }}
-      />
-
-      {/* Watermark tag */}
-      <div
-        className={`absolute ${reversed ? "left-[-20px]" : "right-[-20px]"} top-1/2 -translate-y-1/2 font-black pointer-events-none select-none opacity-100`}
-        style={{
-          fontSize: "clamp(10rem, 18vw, 16rem)",
-          lineHeight: 1,
-          color: "transparent",
-          WebkitTextStroke: `1px ${accent}07`,
-          fontFamily: "var(--font-space)",
-          writingMode: "vertical-lr",
-          letterSpacing: "-0.05em",
-        }}
-      >
-        {id.slice(0, 3).toUpperCase()}
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-8 lg:px-16">
+      {/* Image side — full height */}
+      <AnimatedSection direction={reversed ? "right" : "left"} delay={0.15} className={`relative w-full lg:w-1/2 min-h-[56vw] lg:min-h-0 ${reversed ? "lg:order-2" : "lg:order-1"}`}>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover object-center"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.style.display = "none";
+          }}
+        />
+        {/* Vinheta — no mobile escurece só embaixo, no desktop escurece lateral */}
         <div
-          className={`grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] gap-12 xl:gap-20 items-center ${reversed ? "lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1 lg:grid-cols-[420px_1fr] xl:grid-cols-[480px_1fr]" : ""}`}
+          className="absolute inset-0 pointer-events-none z-10 hidden lg:block"
+          style={{
+            background: reversed
+              ? `linear-gradient(to left, ${bgStyle.includes('080c08') ? '#080c08' : '#080808'} 0%, transparent 25%)`
+              : `linear-gradient(to right, ${bgStyle.includes('080c08') ? '#080c08' : '#080808'} 0%, transparent 25%)`,
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none z-10 lg:hidden"
+          style={{
+            background: `linear-gradient(to top, ${bgStyle.includes('080c08') ? '#080c08' : '#080808'} 0%, transparent 40%)`,
+          }}
+        />
+        {/* Tag badge — desktop only */}
+        <div
+          className="hidden lg:block absolute bottom-4 left-4 px-4 py-2 rounded-lg backdrop-blur-sm z-20"
+          style={{ background: "rgba(8,8,8,0.8)", border: `1px solid ${accent}30` }}
         >
+          <span className="text-xs font-bold uppercase tracking-widest" style={{ color: accent }}>
+            {tag}
+          </span>
+        </div>
+      </AnimatedSection>
+
+      {/* Text side */}
+      <div className={`relative w-full lg:w-1/2 flex items-center py-24 px-10 xl:px-20 z-10 ${reversed ? "lg:order-1" : "lg:order-2"}`}>
+        {/* Diagonal lines */}
+        <div className="absolute inset-0 diagonal-lines pointer-events-none opacity-60" />
+        {/* Watermark */}
+        <div
+          className="absolute right-[-20px] top-1/2 -translate-y-1/2 font-black pointer-events-none select-none"
+          style={{
+            fontSize: "clamp(8rem, 14vw, 12rem)",
+            lineHeight: 1,
+            color: "transparent",
+            WebkitTextStroke: `1px ${accent}07`,
+            fontFamily: "var(--font-space)",
+            writingMode: "vertical-lr",
+            letterSpacing: "-0.05em",
+          }}
+        >
+          {id.slice(0, 3).toUpperCase()}
+        </div>
+        <div className="relative z-10 w-full max-w-xl">
           {textCol}
-          {imageCol}
         </div>
       </div>
 
-      <div className="sep-line absolute bottom-0 left-0 right-0" />
+      <div className="sep-line absolute bottom-0 left-0 right-0 z-10" />
     </section>
-  );
-}
-
-function RobotPlaceholder({ accent }: { accent: string }) {
-  return (
-    <div className="opacity-10 w-48 h-64">
-      <svg viewBox="0 0 200 280" fill="none" className="w-full h-full">
-        {/* Robot head */}
-        <rect x="60" y="40" width="80" height="70" rx="8" fill={accent} opacity="0.3" stroke={accent} strokeWidth="2" />
-        <circle cx="85" cy="75" r="10" fill={accent} opacity="0.5" />
-        <circle cx="115" cy="75" r="10" fill={accent} opacity="0.5" />
-        <rect x="80" y="95" width="40" height="6" rx="3" fill={accent} opacity="0.4" />
-        {/* Neck */}
-        <rect x="90" y="110" width="20" height="20" fill={accent} opacity="0.3" />
-        {/* Body */}
-        <rect x="50" y="130" width="100" height="90" rx="10" fill={accent} opacity="0.15" stroke={accent} strokeWidth="2" />
-        {/* Chest panel */}
-        <rect x="70" y="150" width="60" height="50" rx="5" fill={accent} opacity="0.1" stroke={accent} strokeWidth="1" />
-        <circle cx="100" cy="175" r="12" fill={accent} opacity="0.2" stroke={accent} strokeWidth="1" />
-        {/* Arms */}
-        <rect x="20" y="135" width="25" height="70" rx="12" fill={accent} opacity="0.15" stroke={accent} strokeWidth="1.5" />
-        <rect x="155" y="135" width="25" height="70" rx="12" fill={accent} opacity="0.15" stroke={accent} strokeWidth="1.5" />
-        {/* Legs */}
-        <rect x="60" y="222" width="30" height="50" rx="8" fill={accent} opacity="0.15" stroke={accent} strokeWidth="1.5" />
-        <rect x="110" y="222" width="30" height="50" rx="8" fill={accent} opacity="0.15" stroke={accent} strokeWidth="1.5" />
-      </svg>
-    </div>
   );
 }
 
@@ -290,11 +229,11 @@ export function ArquitetosSection() {
   return (
     <PapelDetalhadoSection
       id="arquitetos"
-      tag="Arquitetos do Problema"
+      tag="Especialistas em Diagnóstico"
       tagline="OS PROBLEMAS DA SAÚDE PÚBLICA PRECISAM SER BEM COMPREENDIDOS ANTES DE SEREM RESOLVIDOS."
-      title="Arquitetos do Problema"
+      title="Especialistas em Diagnóstico"
       intro="Você é educador, especialista ou mentor que ajuda equipes a identificar e estruturar problemas complexos?"
-      description="O Movimento ECOHOS busca profissionais capazes de conduzir gestores públicos na identificação dos principais desafios enfrentados pela população nos serviços de saúde. Utilizando metodologias de inovação e inteligência coletiva, esses especialistas ajudam a transformar problemas do cotidiano da gestão pública em desafios estruturados, abrindo caminho para o desenvolvimento de soluções tecnológicas que podem melhorar a vida das pessoas."
+      description="O Programa Secretário Inovador busca profissionais capazes de conduzir gestores públicos na identificação dos principais desafios enfrentados pela população nos serviços de saúde. Utilizando metodologias de inovação e inteligência coletiva, esses especialistas ajudam a transformar problemas do cotidiano da gestão pública em desafios estruturados, abrindo caminho para o desenvolvimento de soluções tecnológicas que podem melhorar a vida das pessoas."
       participants={[
         "Professores e educadores",
         "Especialistas em inovação aberta",
@@ -309,8 +248,8 @@ export function ArquitetosSection() {
         "Mapeamento de Processos",
         "Jornada do Usuário",
       ]}
-      imageSrc="/images/robo1.png"
-      imageAlt="Arquiteto do problema — especialista em inovação"
+      imageSrc="/especialista.png"
+      imageAlt="Especialista em Diagnóstico"
       reversed={false}
     />
   );
@@ -324,7 +263,7 @@ export function EstrategistasSection() {
       tagline="OS PROBLEMAS IDENTIFICADOS PRECISAM SER TRANSFORMADOS EM DESAFIOS CLAROS PARA GERAR SOLUÇÕES."
       title="Estrategistas do Desafio"
       intro="Você é gestor público e participa das decisões que definem prioridades e projetos da sua secretaria?"
-      description="O Movimento ECOHOS busca gestores públicos capazes de analisar os problemas identificados e definir quais desafios devem ser priorizados para melhorar os serviços de saúde oferecidos à população. A partir de processos estruturados de análise e decisão, esses profissionais transformam problemas reais da gestão pública em desafios de inovação, abrindo caminho para que startups e empreendedores desenvolvam soluções tecnológicas."
+      description="O Programa Secretário Inovador busca gestores públicos capazes de analisar os problemas identificados e definir quais desafios devem ser priorizados para melhorar os serviços de saúde oferecidos à população. A partir de processos estruturados de análise e decisão, esses profissionais transformam problemas reais da gestão pública em desafios de inovação, abrindo caminho para que startups e empreendedores desenvolvam soluções tecnológicas."
       participants={[
         "Secretários municipais de saúde",
         "Subsecretários e diretores de área",
@@ -340,7 +279,7 @@ export function EstrategistasSection() {
         "Definição de Desafios de Inovação",
         "Estruturação de Projetos Públicos",
       ]}
-      imageSrc="/images/robo2.png"
+      imageSrc="/to.png"
       imageAlt="Estrategista do desafio — gestor público"
       reversed={true}
     />
@@ -355,7 +294,7 @@ export function DesenvolvedoresSection() {
       tagline="OS DESAFIOS DA SAÚDE PÚBLICA PRECISAM DE SOLUÇÕES INOVADORAS CAPAZES DE GERAR IMPACTO REAL NA VIDA DAS PESSOAS."
       title="Desenvolvedores da Solução"
       intro="Você é empreendedor, fundador de startup ou especialista em tecnologia que desenvolve soluções digitais para resolver problemas reais?"
-      description="O Movimento ECOHOS busca startups, empreendedores e empresas de base tecnológica capazes de desenvolver soluções inovadoras para enfrentar os desafios apresentados pelos gestores públicos. A partir dos desafios definidos pelas secretarias de saúde, esses profissionais utilizam tecnologia, criatividade e métodos ágeis para criar produtos, plataformas e serviços digitais que possam melhorar o atendimento à população."
+      description="O Programa Secretário Inovador busca startups, empreendedores e empresas de base tecnológica capazes de desenvolver soluções inovadoras para enfrentar os desafios apresentados pelos gestores públicos. A partir dos desafios definidos pelas secretarias de saúde, esses profissionais utilizam tecnologia, criatividade e métodos ágeis para criar produtos, plataformas e serviços digitais que possam melhorar o atendimento à população."
       participants={[
         "Startups de tecnologia",
         "Empreendedores de base tecnológica",
@@ -371,7 +310,7 @@ export function DesenvolvedoresSection() {
         "Inteligência Artificial e dados",
         "Desenvolvimento de plataformas",
       ]}
-      imageSrc="/images/robo3.png"
+      imageSrc="/solucao.png"
       imageAlt="Desenvolvedor de solução — startup healthtech"
       reversed={false}
     />

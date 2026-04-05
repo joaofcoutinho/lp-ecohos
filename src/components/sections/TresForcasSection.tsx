@@ -7,7 +7,7 @@ import CtaButton from "@/components/ui/CtaButton";
 const forcas = [
   {
     num: "01",
-    tag: "Arquitetos do Problema",
+    tag: "Especialistas em Diagnóstico",
     role: "Educadores",
     description: "Identificam e estruturam os problemas da população.",
     icon: (
@@ -101,15 +101,15 @@ export default function TresForcasSection() {
 
           <AnimatedSection direction="up" delay={0.1}>
             <h2
-              className="font-black text-white tracking-tight mb-4"
+              className="font-semibold text-white tracking-tight mb-4"
               style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
             >
-              TRÊS FORÇAS E <span className="text-gradient">UM PROPÓSITO</span>
+              Três forças e <span className="text-gradient">um propósito</span>
             </h2>
           </AnimatedSection>
 
           <AnimatedSection direction="up" delay={0.15}>
-            <p className="text-[#444] text-sm uppercase tracking-[0.25em]">
+            <p className="text-[#444] text-sm tracking-[0.15em]">
               Transformar desafios da Saúde Pública em oportunidades
             </p>
           </AnimatedSection>

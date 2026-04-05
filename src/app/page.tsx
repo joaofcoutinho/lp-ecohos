@@ -1,4 +1,5 @@
-import HeroSection from "@/components/sections/HeroSection";
+// import HeroSection from "@/components/sections/HeroSection";
+import HeroSection2 from "@/components/sections/HeroSection2";
 import PropositoSection from "@/components/sections/PropositoSection";
 import TresForcasSection from "@/components/sections/TresForcasSection";
 import {
@@ -14,7 +15,8 @@ import Footer from "@/components/sections/Footer";
 export default function Home() {
   return (
     <main className="bg-[#080808] text-white overflow-hidden">
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <HeroSection2 />
       <PropositoSection />
       <TresForcasSection />
       <ArquitetosSection />

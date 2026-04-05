@@ -1,6 +1,21 @@
 @import "tailwindcss";
 
+
 :root {
+  /* shadcn compat tokens */
+  --background: #080808;
+  --foreground: #ffffff;
+  --card: #0d0d0d;
+  --card-foreground: #ffffff;
+  --primary: #a8ff3e;
+  --primary-foreground: #080808;
+  --muted-foreground: #a0a0a0;
+  --border: rgba(255,255,255,0.08);
+  --ring: rgba(168,255,62,0.4);
+  --accent: rgba(255,255,255,0.05);
+  --accent-foreground: #ffffff;
+  --ring-offset-background: #080808;
+
   --bg-primary: #080808;
   --green-neon: #a8ff3e;
   --green-mid: #7ed321;

@@ -106,11 +106,11 @@ export default function PropositoSection() {
           <div className="space-y-8">
             <AnimatedSection direction="up" delay={0.2}>
               <h2
-                className="font-black leading-tight tracking-tight"
+                className="font-semibold leading-tight tracking-tight"
                 style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2rem, 4vw, 3.2rem)" }}
               >
-                <span className="text-white">INOVAÇÃO QUE MELHORA A </span>
-                <span className="text-gradient">SAÚDE DA NOSSA GENTE</span>
+                <span className="text-white">Inovação que melhora a </span>
+                <span className="text-gradient">saúde da nossa gente</span>
               </h2>
             </AnimatedSection>
 
@@ -118,7 +118,7 @@ export default function PropositoSection() {
               <p className="text-[#b0b0b0] text-lg leading-[1.85]">
                 No Espírito Santo,{" "}
                 <span className="text-[#a8ff3e] font-semibold">78 secretarias municipais de saúde</span>{" "}
-                atendem milhões de capixabas todos os dias. O Movimento ECOHOS nasce para apoiar
+                atendem milhões de capixabas todos os dias. O Programa Secretário Inovador nasce para apoiar
                 essas equipes na busca por soluções inovadoras que melhorem o atendimento e a
                 qualidade de vida da população.
               </p>

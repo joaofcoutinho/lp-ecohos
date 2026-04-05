@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 interface CtaButtonProps {
@@ -12,7 +13,7 @@ interface CtaButtonProps {
 
 export default function CtaButton({
   label = "QUERO FAZER PARTE DESSE MOVIMENTO",
-  href = "#contato",
+  href = "/cadastro",
   size = "md",
   className = "",
 }: CtaButtonProps) {
@@ -23,14 +24,11 @@ export default function CtaButton({
   };
 
   return (
-    <motion.a
-      href={href}
-      className={`btn-cta gap-2 ${sizes[size]} ${className}`}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
-      {label}
-      <ArrowRight size={14} strokeWidth={2.5} />
-    </motion.a>
+    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-flex">
+      <Link href={href} className={`btn-cta gap-2 ${sizes[size]} ${className}`}>
+        {label}
+        <ArrowRight size={14} strokeWidth={2.5} />
+      </Link>
+    </motion.div>
   );
 }

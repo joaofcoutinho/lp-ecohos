@@ -86,7 +86,7 @@ export default function IncentivadoresSection() {
             className="px-6 py-3 lg:hidden"
             style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
           >
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#444]" style={{ fontFamily: "var(--font-space)" }}>
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#a8ff3e]" style={{ fontFamily: "var(--font-space)" }}>
               Parceiros e Apoiadores
             </span>
           </div>
@@ -96,7 +96,7 @@ export default function IncentivadoresSection() {
             <div className="hidden lg:flex px-10 py-6 items-center flex-shrink-0"
               style={{ borderRight: "1px solid rgba(255,255,255,0.07)" }}
             >
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#444]" style={{ fontFamily: "var(--font-space)" }}>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#a8ff3e]" style={{ fontFamily: "var(--font-space)" }}>
                 Parceiros e Apoiadores
               </span>
             </div>

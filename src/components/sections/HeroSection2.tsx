@@ -32,7 +32,7 @@ export default function HeroSection2() {
         linkHref: '',
       }}
       callToActions={[
-        { text: 'Quero fazer parte', href: '/cadastro', variant: 'primary' },
+        { text: 'Quero fazer parte', href: '#incentivadores', variant: 'primary' },
         { text: 'Saiba mais', href: '#proposito', variant: 'secondary' },
       ]}
       titleSize="large"
